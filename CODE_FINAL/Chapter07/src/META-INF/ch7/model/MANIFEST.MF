@@ -1,0 +1,8 @@
+Bundle-Version: 1.0
+Bundle-SymbolicName: com.apress.springosgi.ch7.model
+Bundle-Name: HelloWorld Spring-OSGi Model
+Bundle-Vendor: Pro Spring-OSGi
+Export-Package: com.apress.springosgi.ch7.model;version="1.0.0"
+Bundle-ManifestVersion: 2
+Import-Package:  javax.persistence;version="1.0.0",
+ javax.persistence.spi;version="1.0.0"

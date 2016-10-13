@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Application-SymbolicName: com.apress.springosgi.ch5.HelloWorld
+Application-Version: 1.0
+Application-Name: HelloWorld SpringSource dm Server
+Application-Description: A Hello World Platform Archive for Pro-Spring OSGi

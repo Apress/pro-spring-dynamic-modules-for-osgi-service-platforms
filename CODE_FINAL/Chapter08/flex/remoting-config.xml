@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="remoting-service" 
+    class="flex.messaging.services.RemotingService" 
+    messageTypes="flex.messaging.messages.RemotingMessage">
+
+    <adapters>
+        <adapter-definition id="java-object" class="flex.messaging.services.remoting.adapters.JavaAdapter" default="true"/>
+    </adapters>
+
+    <default-channels>
+        <channel ref="my-amf"/>
+    </default-channels>
+    
+    <destination id="product">
+        <properties>
+            <source>flex.testdrive.store.ProductService</source>
+        </properties>
+    </destination>
+    
+    <destination id="census">
+        <properties>
+            <source>flex.testdrive.census.CensusService</source>
+        </properties>
+    </destination>
+    
+    <destination id="mortgageService">
+    	<properties>
+        	<factory>spring</factory>
+	        <source>mortgageBean</source>
+    	</properties>
+	</destination>
+
+	<destination id="productService">
+    	<properties>
+        	<factory>spring</factory>
+	        <source>productDAOBean</source>
+    	</properties>
+	</destination>
+
+</service>

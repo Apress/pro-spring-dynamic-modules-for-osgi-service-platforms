@@ -1,0 +1,43 @@
+<ivy-module version="2.0">
+    <info organisation="apache" module="hello-ivy"/>
+    <configurations>
+         <conf name="build"/>
+    </configurations>
+    <dependencies>
+
+   <!-- Download bundle dependencies for application testing (Non-OSGi and OSGi)-->
+       <dependency org="org.junit" name="com.springsource.org.junit" rev="4.5.0"/>
+       <dependency org="org.junit" name="com.springsource.junit" rev="3.8.2"/>
+
+       <dependency org="org.springframework" name="org.springframework.test" rev="2.5.5.A" />
+       <dependency org="org.hsqldb" name="com.springsource.org.hsqldb" rev="1.8.0.9"/>
+       <dependency org="org.objectweb.asm" name="com.springsource.org.objectweb.asm" rev="2.2.3"/>
+       <dependency org="org.aopalliance" name="com.springsource.org.aopalliance" rev="1.0.0"/>      
+       <dependency org="org.slf4j" name="com.springsource.slf4j.log4j" rev="1.5.0"/>
+
+       <dependency org="org.springframework" name="spring-aop" rev="2.5.6"/>
+       <dependency org="org.springframework" name="spring-beans" rev="2.5.6"/>
+       <dependency org="org.springframework" name="spring-context" rev="2.5.6"/>
+       <dependency org="org.springframework" name="spring-core" rev="2.5.6"/>
+       <dependency org="org.springframework" name="spring-test" rev="2.5.6"/>
+       <dependency org="org.springframework.osgi" name="log4j.osgi" rev="1.2.15-SNAPSHOT">
+         <artifact name="log4j.osgi" type="jar" url="http://s3.amazonaws.com/maven.springframework.org/osgi/org/springframework/osgi/log4j.osgi/1.2.15-SNAPSHOT/log4j.osgi-1.2.15-20080314.153110-17.jar"/>
+       </dependency>
+
+       <dependency org="org.springframework.osgi" name="spring-osgi-io" rev="1.2.0-m2"/>
+       <dependency org="org.springframework.osgi" name="spring-osgi-core" rev="1.2.0-m2"/>
+       <dependency org="org.springframework.osgi" name="spring-osgi-extender" rev="1.2.0-m2"/>
+       <dependency org="org.springframework.osgi" name="spring-osgi-annotation" rev="1.2.0-m2"/>
+       <dependency org="org.springframework.osgi" name="spring-osgi-test" rev="1.2.0-m1"/>
+       <dependency org="org.eclipse.osgi" name="org.eclipse.osgi" rev="3.5.0.200811061137"/>
+       <dependency org="org.apache.felix" name="org.apache.felix.main" rev="1.0.4"/>
+       <dependency org="knopflerfish" name="framework" rev="2.1.0"/>
+
+       <!-- Download dependencies for testing db bundle -->
+       <dependency org="ch.qos.logback" name="com.springsource.ch.qos.logback.classic" rev="0.9.9"/>
+       <dependency org="org.slf4j" name="com.springsource.slf4j.log4j" rev="1.5.0"/>
+       <dependency org="org.slf4j" name="com.springsource.slf4j.org.apache.commons.logging" rev="1.5.0"/>
+       <dependency org="com.mysql.jdbc" name="com.springsource.com.mysql.jdbc" rev="5.1.6"/>
+       <dependency org="org.apache.commons" name="com.springsource.org.apache.commons.dbcp" rev="1.2.2.osgi"/>
+ </dependencies>
+</ivy-module>

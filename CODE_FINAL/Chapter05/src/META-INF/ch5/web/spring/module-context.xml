@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:context="http://www.springframework.org/schema/context" xmlns:jee="http://www.springframework.org/schema/jee"
+                xmlns:tx="http://www.springframework.org/schema/tx"
+                xsi:schemaLocation="
+                        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+                        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+                        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+        <context:component-scan base-package="com.apress.springosgi.ch5.web"/>
+
+
+<bean id="helloWorldController" class="com.apress.springosgi.ch5.web.HelloWorldController">
+ <property name="helloWorldService" ref="helloWorldServiceBean"/>
+</bean>
+
+
+<bean id="urlMapper" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+         <props>
+          <prop key="/**">helloWorldController</prop>
+         </props>
+        </property>
+</bean>
+
+<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+                <property name="prefix" value="/jsp/"/>
+                <property name="suffix" value=".jsp"/>
+</bean>
+
+</beans>

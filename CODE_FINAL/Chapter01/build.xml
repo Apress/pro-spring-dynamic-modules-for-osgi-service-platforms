@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+
+<project default="init" basedir=".">
+
+  <target name="init" description="Apress - Pro Spring-OSGi">
+  <tstamp/>
+  <property name="projectname" value="Pro Spring-OSGi"/>
+  
+  <echo message="-------${projectname}------"/>
+   
+  <property name="debug"          value="on"/>
+  <property name="optimize"       value="off"/>
+  <property name="deprecation"    value="off"/>
+  <property name="build.compiler" value="modern"/>
+  <property name="target.vm"      value="1.5"/>
+  <property name="build.dir"      value="classes"/>
+  <property name="dist.dir"       value="dist"/>
+  <property name="src.dir"        value="src"/>
+  <property name="lib.dir"        value="lib"/>
+
+  <!-- Load JAR's onto the classpath, taken from lib sub-dir -->
+  <path id="classpath"> 
+   <fileset dir="${lib.dir}">
+    <include name="*.jar"/>
+   </fileset>
+   <pathelement location="${build.dir}"/>
+  </path>
+ 
+ </target>
+
+ <target name="compile" depends="init" description="Compile code">
+   
+  <echo message="-------Compiling code for Pro-Spring OSGi------"/>
+   
+  <mkdir dir="${build.dir}"/>
+  <mkdir dir="${dist.dir}"/>
+  
+  <copy file="../lib/felix.jar" todir="lib"/>
+  <copy file="../lib/http.jar" todir="lib"/>
+  <copy file="../lib/javax.servlet-1.0.0.jar" todir="lib"/>
+  <copy file="../lib/org.osgi.compendium-1.2.0.jar" todir="lib"/>
+  <copy todir="felix">
+    <fileset dir="../felix"/> 
+  </copy>
+  <copy file="conf/config.properties" tofile="felix/conf/config.properties" overwrite="true"/>
+
+  <javac srcdir="${src.dir}"
+         destdir="${build.dir}" 
+         debug="${debug}"
+         optimize="${optimize}"
+         deprecation="${deprection}"
+         target="${target.vm}"> 
+     <classpath refid="classpath"/>
+  </javac>
+
+  <copy todir="${build.dir}">
+           <fileset dir="${src.dir}">
+<!-- Some of the following statements are relevant to Ch2 --> 
+<!-- They are present here because the same compile task is used -->
+               <include name="**/*.properties"/>
+               <include name="**/*.xml"/>
+               <exclude name="**/*.java"/>
+               <exclude name="META-INF/**"/>
+               <exclude name="WEB-INF/**"/>
+               <exclude name="GUI/**"/>
+            </fileset>
+  </copy>
+  </target>
+
+<target name="ch1" depends="compile" description="Build Chapter 1 Bundles">
+  <echo message="-Building Chapter 1 bundles for Pro-Spring OSGi-"/>
+
+  <property name="ch1.dir"          value="${dist.dir}/ch1/"/>
+  <mkdir dir="${ch1.dir}"/>
+
+  <jar destfile="${ch1.dir}/helloworld.jar" manifest="${src.dir}/META-INF/ch1/hello/MANIFEST.MF"> 
+   <fileset dir="${build.dir}" includes="com/apress/springosgi/ch1/hello/**"/>
+
+  </jar>
+  <jar destfile="${ch1.dir}/helloworld-service.jar" manifest="${src.dir}/META-INF/ch1/service/MANIFEST.MF">
+
+   <fileset dir="${build.dir}" includes="com/apress/springosgi/ch1/service/**"/>
+
+  </jar>
+
+ <jar destfile="${ch1.dir}/helloworld-servlet.jar" manifest="${src.dir}/META-INF/ch1/servlet/MANIFEST.MF">
+         <fileset  dir="${build.dir}" includes="com/apress/springosgi/ch1/servlet/**"/>
+      
+     </jar>
+
+ </target>
+
+</project>

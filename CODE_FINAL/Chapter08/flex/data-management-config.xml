@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="data-service" 
+    class="flex.data.DataService" 
+    messageTypes="flex.data.messages.DataMessage">
+
+    <adapters>
+        <adapter-definition id="actionscript" class="flex.data.adapters.ASObjectAdapter" default="true"/>
+        <adapter-definition id="java-dao" class="flex.data.adapters.JavaAdapter"/>
+    </adapters>
+
+    <default-channels>
+        <channel ref="my-rtmp"/>
+    </default-channels>
+
+    <destination id="product">
+
+        <adapter ref="java-dao" />
+
+        <properties>
+            <source>flex.testdrive.store.ProductAssembler</source>
+            <scope>application</scope>
+
+            <metadata>
+                <identity property="productId"/>
+            </metadata>
+
+            <network>
+                <session-timeout>20</session-timeout>
+                <paging enabled="false" pageSize="10" />
+                <throttle-inbound policy="ERROR" max-frequency="500"/>
+                <throttle-outbound policy="REPLACE" max-frequency="500"/>
+            </network>
+        </properties>
+    </destination>
+
+    <destination id="spring-product">
+	    <adapter ref="java-dao" />
+	    <properties>
+    	    <source>productAssemblerBean</source>
+        	<factory>spring</factory>
+	        <metadata>
+    	        <identity property="productId"/>
+        	</metadata>
+	    </properties>
+	</destination> 
+
+	<destination id="hibernate-product">
+        <adapter ref="java-dao" />
+        <properties>
+            <use-transactions>true</use-transactions>
+            <source>flex.data.assemblers.HibernateAssembler</source>
+            <scope>application</scope>
+            <metadata>
+                <identity property="productId"/>
+            </metadata>
+            <network>
+                <session-timeout>20</session-timeout>
+                <paging enabled="false" pageSize="10" />
+                <throttle-inbound policy="ERROR" max-frequency="500"/>
+                <throttle-outbound policy="REPLACE" max-frequency="500"/>
+            </network>
+            <server>
+                <hibernate-entity>flex.testdrive.store.Product</hibernate-entity>
+                <fill-method>
+                    <name>fill</name>
+                    <params>java.util.List</params>
+                </fill-method>
+                <fill-configuration>
+                    <use-query-cache>false</use-query-cache>
+                    <allow-hql-queries>true</allow-hql-queries>
+                </fill-configuration>
+            </server>
+        </properties>
+    </destination>
+
+</service>

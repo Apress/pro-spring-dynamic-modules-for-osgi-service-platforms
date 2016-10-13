@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.apress.springosgi.ch5.service
+Bundle-Version: 1.0.0
+Bundle-Name: HelloWorld dm Service Service Interface
+Bundle-Vendor: Pro Spring-OSGi
+Import-Library: org.springframework.spring;version="[2.5,2.6)"
+Import-Package: com.apress.springosgi.ch5.model;version="1.0.0"
+Export-Package: com.apress.springosgi.ch5.service;version="1.0.0"

@@ -1,0 +1,6 @@
+Bundle-Name: Hello World Service
+Bundle-Description: H.W Service Pro-Spring OSGi
+Bundle-Version: 1.0.0
+Bundle-Activator: com.apress.springosgi.ch1.service.Activator
+Import-Package: org.osgi.framework,
+ com.apress.springosgi.ch1.hello

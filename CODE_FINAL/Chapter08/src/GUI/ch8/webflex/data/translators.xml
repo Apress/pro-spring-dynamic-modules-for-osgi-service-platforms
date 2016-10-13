@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<translators>
+	<translator id="1">
+		<name>Dino Casiraghi</name>
+		<hourlyRate>45</hourlyRate>
+	</translator>
+	<translator id="2">
+		<name>Carlos Perez</name>
+		<hourlyRate>40</hourlyRate>
+	</translator>
+	<translator id="3">
+		<name>John Smith</name>
+		<hourlyRate>45</hourlyRate>
+	</translator>
+	<translator id="4">
+		<name>Pierre LeClair</name>
+		<hourlyRate>40</hourlyRate>
+	</translator>
+	<translator id="5">
+		<name>Franz Becker</name>
+		<hourlyRate>45</hourlyRate>
+	</translator>
+</translators>

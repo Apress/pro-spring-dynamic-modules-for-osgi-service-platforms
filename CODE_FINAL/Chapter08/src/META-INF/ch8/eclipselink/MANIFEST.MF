@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Import-Package: org.springframework.orm.jpa;version="2.5.4",
+ org.springframework.orm.jpa.vendor;version="2.5.4"
+Bundle-SymbolicName: com.apress.springosgi.ch8.eclipselink
+Bundle-Version: 1.0.0
+Bundle-Name: HelloWorld SpringSource Application Platform Eclipse Link JPA
+Bundle-Vendor: Pro Spring-OSGi
+
+
+
+

@@ -1,0 +1,9 @@
+Bundle-Version: 1.0
+Bundle-SymbolicName: com.apress.springosgi.ch7.servicejdbc
+Bundle-Name: HelloWorld Spring-OSGi Service JDBC
+Bundle-Vendor: Pro Spring-OSGi
+Import-Package: com.apress.springosgi.ch7.model;version="1.0.0",
+ com.apress.springosgi.ch7.service;version="1.0.0",
+ org.springframework.jdbc.core;version="2.5.4",
+ javax.sql
+Bundle-ManifestVersion: 2

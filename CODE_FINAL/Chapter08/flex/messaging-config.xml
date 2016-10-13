@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="message-service" 
+    class="flex.messaging.services.MessageService" 
+    messageTypes="flex.messaging.messages.AsyncMessage">
+
+    <adapters>
+        <adapter-definition id="actionscript" class="flex.messaging.services.messaging.adapters.ActionScriptAdapter" default="true" />
+        <adapter-definition id="jms" class="flex.messaging.services.messaging.adapters.JMSAdapter"/>
+    </adapters>
+
+    <destination id="chat">
+
+        <properties>
+            <network>
+                <session-timeout>0</session-timeout>
+            </network>
+            <server>
+                <max-cache-size>1000</max-cache-size>
+                <message-time-to-live>0</message-time-to-live>
+                <durable>false</durable>
+            </server>
+        </properties>
+
+        <channels>
+            <channel ref="my-rtmp"/>
+        </channels>
+
+    </destination>
+    
+    <destination id="chat-jms">
+		<properties>
+			<server>
+				<durable>false</durable>
+				<durable-store-manager>flex.messaging.durability.FileStoreManager</durable-store-manager>
+			</server>
+			<jms>
+				<message-type>javax.jms.ObjectMessage</message-type>
+				<connection-factory>java:comp/env/JmsConnectionFactory</connection-factory>
+				<destination-jndi-name>java:comp/env/ChatTopic</destination-jndi-name>
+				<destination-name>flexChat</destination-name>
+				<delivery-mode>NON_PERSISTENT</delivery-mode>
+				<message-priority>DEFAULT_PRIORITY</message-priority>
+				<acknowledge-mode>AUTO_ACKNOWLEDGE</acknowledge-mode>
+				<transacted-sessions>false</transacted-sessions>
+			</jms>
+		</properties>
+		<channels>
+			<channel ref="my-rtmp"/>
+		</channels>
+		<adapter ref="jms"/>
+	</destination>
+    
+    <destination id="feed">
+
+        <properties>
+            <network>
+                <session-timeout>0</session-timeout>
+            </network>
+            <server>
+                <max-cache-size>1000</max-cache-size>
+                <message-time-to-live>0</message-time-to-live>
+                <durable>false</durable>
+            </server>
+        </properties>
+
+        <channels>
+            <channel ref="my-rtmp"/>
+        </channels>
+
+    </destination>
+
+    <destination id="marketdata">
+
+        <properties>
+            <network>
+                <session-timeout>0</session-timeout>
+            </network>
+            <server>
+                <max-cache-size>1000</max-cache-size>
+                <message-time-to-live>0</message-time-to-live>
+                <durable>false</durable>
+                <allow-subtopics>true</allow-subtopics>
+                <subtopic-separator>.</subtopic-separator>
+            </server>
+        </properties>
+
+        <channels>
+            <channel ref="my-rtmp"/>
+        </channels>
+
+    </destination>
+
+    <destination id="dashboard">
+
+        <properties>
+            <network>
+                <session-timeout>0</session-timeout>
+            </network>
+            <server>
+                <max-cache-size>1000</max-cache-size>
+                <message-time-to-live>0</message-time-to-live>
+                <durable>false</durable>
+            </server>
+        </properties>
+
+        <channels>
+            <channel ref="my-rtmp"/>
+        </channels>
+
+    </destination>
+
+</service>

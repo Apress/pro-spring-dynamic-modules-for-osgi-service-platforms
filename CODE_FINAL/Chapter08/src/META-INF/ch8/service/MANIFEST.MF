@@ -1,0 +1,5 @@
+Bundle-Name: Hello World Service
+Bundle-Description: H.W Service Pro-Spring OSGi
+Bundle-Version: 1.0.0
+Import-Package: com.apress.springosgi.ch8.model;version="1.0.0"
+Export-Package: com.apress.springosgi.ch8.service;version="1.0.0"

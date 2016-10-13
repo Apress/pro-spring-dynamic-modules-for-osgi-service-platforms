@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.apress.springosgi.ch5.servicedao
+Bundle-Version: 1.0.0
+Bundle-Name: HelloWorld SpringSource dm Server JPA Backed DAO Service
+Bundle-Vendor: Pro Spring-OSGi
+Import-Library: org.springframework.spring;version="[2.5,2.6)"
+Import-Bundle: com.springsource.javax.persistence;version="[1.0.0,1.0.0]",
+ com.springsource.org.aspectj.runtime;version="1.6.0",
+ com.springsource.org.aspectj.weaver;version="1.6.0"
+Import-Package: com.apress.springosgi.ch5.model;version="1.0.0",
+ com.apress.springosgi.ch5.service;version="1.0.0",
+ javax.sql

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2-0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+  <definition name="home" template="/jsp/home.jsp">
+      <put-attribute name="title" value="Hello World - Pro Spring-OSGi"/>
+      <put-attribute name="header" value="/jsp/tiles/header.jsp"/>
+      <put-attribute name="content" value="index.body"/>
+      <put-attribute name="footer" value="/jsp/tiles/footer.jsp" />
+  </definition>
+
+  <definition name="index.body" template="/jsp/tiles/body.jsp">
+      <put-attribute name="helloMessages" value="/jsp/tiles/messages.jsp" />
+      <put-attribute name="helloTranslators" value="/jsp/tiles/translators.jsp" />
+      <put-attribute name="translator" value="/jsp/tiles/translator.jsp" />
+  </definition>
+
+</tiles-definitions>

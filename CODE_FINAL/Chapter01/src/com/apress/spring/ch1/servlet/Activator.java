@@ -1,0 +1,181 @@
+package com.apress.springosgi.ch1.servlet;
+
+import com.apress.springosgi.ch1.hello.HelloWorld;
+
+
+
+
+
+
+
+
+
+
+
+
+
+import org.osgi.framework.BundleActivator;
+
+import org.osgi.framework.BundleContext;
+
+import org.osgi.framework.ServiceReference;
+
+import org.osgi.service.http.HttpService;
+
+import org.osgi.util.tracker.ServiceTracker;
+
+
+public class Activator implements BundleActivator
+{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     private ServiceTracker httpServiceTracker;
+
+        private ServiceTracker helloWorldServiceTracker;
+
+
+
+        public void start(BundleContext context) throws Exception {
+
+
+
+                // create new ServiceTracker for HelloWorldService via HelloWorld interface
+
+                helloWorldServiceTracker = new ServiceTracker(context,
+
+                                HelloWorld.class.getName(), null);
+
+
+
+                // create new ServiceTracker for HttpService
+
+                httpServiceTracker = new ServiceTracker(context, HttpService.class
+
+                                .getName(), null) {
+
+
+
+                        public Object addingService(ServiceReference reference) {
+
+                                HttpService httpService = (HttpService) super
+
+                                                .addingService(reference);
+
+                                try {
+
+                                        httpService.registerServlet("/", new HelloWorldServlet(helloWorldServiceTracker),
+
+                                                        null, null);
+
+                                } catch (Exception e) {
+
+                                        e.printStackTrace();
+
+                                }
+
+                                return httpService;
+
+                        }
+
+
+
+                        public void removedService(ServiceReference reference,
+
+                                        Object service) {
+
+                                ((HttpService) service).unregister("/");
+
+                                super.removedService(reference, service);
+
+                        }
+
+                };
+
+
+
+                // open service tracker to start tracking
+
+                helloWorldServiceTracker.open();
+
+                httpServiceTracker.open();
+
+        }
+
+
+
+        public void stop(BundleContext context) throws Exception {
+
+
+
+                // open service tracker to stop tracking
+
+                httpServiceTracker.close();
+
+                helloWorldServiceTracker.close();
+
+        }
+
+}

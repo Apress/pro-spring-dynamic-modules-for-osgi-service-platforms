@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+
+<project default="init" basedir=".">
+
+  <target name="init" description="Apress - Pro Spring-OSGi">
+  <tstamp/>
+  <property name="projectname" value="Pro Spring-OSGi"/>
+  
+  <echo message="-------${projectname}------"/>
+   
+  <property name="debug"          value="on"/>
+  <property name="optimize"       value="off"/>
+  <property name="deprication"    value="off"/>
+  <property name="build.compiler" value="modern"/>
+  <property name="target.vm"      value="1.5"/>
+  <property name="build.dir"      value="classes"/>
+  <property name="dist.dir"       value="dist"/>
+  <property name="src.dir"        value="src"/>
+  <property name="lib.dir"        value="lib"/>
+
+  <!-- Load JAR's onto the classpath, taken from lib sub-dir -->
+  <path id="classpath"> 
+   <fileset dir="${lib.dir}">
+    <include name="*.jar"/>
+   </fileset>
+   <pathelement location="${build.dir}"/>
+  </path>
+ 
+ </target>
+
+ <target name="compile" depends="init" description="Compile code">
+   
+  <echo message="-------Compiling code for Pro-Spring OSGi------"/>
+   
+  <mkdir dir="${build.dir}"/>
+  <mkdir dir="${dist.dir}"/>
+  
+  <copy file="../lib/persistence.jar" todir="lib"/>
+  <copy file="../lib/spring-beans.jar" todir="lib"/>
+  <copy file="../lib/spring.jar" todir="lib"/>
+  <copy file="../lib/spring-tx.jar" todir="lib"/>
+  <copy file="../lib/spring-webmvc.jar" todir="lib"/>
+
+  <copy todir="equinoxssl">
+    <fileset dir="../osgilib"/> 
+  </copy>
+
+  <copy todir="equinoxjetty">
+    <fileset dir="../osgilib"/> 
+  </copy>
+
+  <copy todir="equinoxflex">
+    <fileset dir="../osgilib"/> 
+  </copy>
+
+  <copy file="configuration/config.ini.SSL" tofile="equinoxssl/configuration/config.ini" overwrite="true"/>
+  <copy file="configuration/config.ini.JETTY" tofile="equinoxjetty/configuration/config.ini" overwrite="true"/>
+  <copy file="configuration/config.ini.FLEX" tofile="equinoxflex/configuration/config.ini" overwrite="true"/>
+
+  <copy file="../equinox/org.eclipse.osgi_3.5.0.v20080804-1730.jar" tofile="equinoxssl/equinox.jar" overwrite="true"/>
+  <copy file="../equinox/org.eclipse.osgi_3.5.0.v20080804-1730.jar" tofile="equinoxjetty/equinox.jar" overwrite="true"/>
+  <copy file="../equinox/org.eclipse.osgi_3.5.0.v20080804-1730.jar" tofile="equinoxflex/equinox.jar" overwrite="true"/>
+
+
+  <javac srcdir="${src.dir}"
+         destdir="${build.dir}" 
+         debug="${debug}"
+         optimize="${optimize}"
+         deprecation="${depreaction}"
+         target="${target.vm}"> 
+     <classpath refid="classpath"/>
+  </javac>
+
+  <copy todir="${build.dir}">
+           <fileset dir="${src.dir}">
+<!-- Some of the following statements are relevant to Ch2 --> 
+<!-- They are present here because the same compile task is used -->
+               <include name="**/*.properties"/>
+               <include name="**/*.xml"/>
+               <exclude name="**/*.java"/>
+               <exclude name="META-INF/**"/>
+               <exclude name="WEB-INF/**"/>
+               <exclude name="GUI/**"/>
+            </fileset>
+  </copy>
+  </target>
+
+
+
+<target name="ch8" depends="compile" description="Build Chapter 8 Spring-OSGi Application">
+
+  <echo message="-------------- Building Chapter 8 Spring-OSGi Application for Pro Spring-OSGi --------------"/>
+
+     <property name="ch8.dir"          value="${dist.dir}/ch8/"/>
+     <mkdir dir="${ch8.dir}"/>
+
+     <jar destfile="${ch8.dir}/helloworld-db.jar" manifest="${src.dir}/META-INF/ch8/db/MANIFEST.MF">
+        <metainf dir="${src.dir}/META-INF/ch8/db/"/>
+     </jar>
+
+    <jar destfile="${ch8.dir}/helloworld-model.jar" manifest="${src.dir}/META-INF/ch8/model/MANIFEST.MF">
+         <fileset  dir="${build.dir}">
+           <include name="com/apress/springosgi/ch8/model/*"/>
+         </fileset>
+        <metainf dir="${src.dir}/META-INF/ch8/model/"/>
+     </jar>
+
+<jar destfile="${ch8.dir}/helloworld-service.jar" manifest="${src.dir}/META-INF/ch8/service/MANIFEST.MF">
+         <fileset  dir="${build.dir}">
+           <include name="com/apress/springosgi/ch8/service/*"/>
+         </fileset>
+        <metainf dir="${src.dir}/META-INF/ch8/service/"/>
+</jar>
+
+<jar destfile="${ch8.dir}/helloworld-servicedao-jdbc.jar" manifest="${src.dir}/META-INF/ch8/servicedao-jdbc/MANIFEST.MF">
+         <fileset  dir="${build.dir}">
+           <include name="com/apress/springosgi/ch8/servicedaojdbc/*"/>
+         </fileset>
+        <metainf dir="${src.dir}/META-INF/ch8/servicedao-jdbc/"/>
+</jar>
+
+<war destfile="${ch8.dir}/helloworld-web.war" webxml="${src.dir}/WEB-INF/ch8/web/web.xml" manifest="${src.dir}/META-INF/ch8/web/MANIFEST.MF">
+        <metainf dir="${src.dir}/META-INF/ch8/web/"/>
+        <webinf dir="${src.dir}/WEB-INF/ch8/web/"/>
+        <zipfileset dir="${src.dir}/GUI/ch8/web/" prefix=""/>
+        <classes dir="${build.dir}">
+           <include name="com/apress/springosgi/ch8/web/*"/>
+        </classes>
+</war>
+
+<war destfile="${ch8.dir}/helloworld-webflex.war" webxml="${src.dir}/WEB-INF/ch8/webflex/web.xml" manifest="${src.dir}/META-INF/ch8/webflex/MANIFEST.MF">
+        <metainf dir="${src.dir}/META-INF/ch8/webflex/"/>
+        <webinf dir="${src.dir}/WEB-INF/ch8/webflex/"/>
+        <zipfileset dir="${src.dir}/GUI/ch8/webflex/" prefix=""/>
+        <zipfileset dir="flex" prefix="WEB-INF/flex"/>
+        <zipfileset dir="flexlibs" prefix="WEB-INF/flexlibs"/>
+        <classes dir="${build.dir}">
+           <include name="com/apress/springosgi/ch8/web/*"/>
+           <include name="flex/**"/>
+        </classes>
+</war>
+
+<jar destfile="${ch8.dir}/tomcat-ssl-osgi.jar" manifest="${src.dir}/META-INF/ch8/ssl/MANIFEST.MF">
+        <zipfileset dir="ssl" prefix=""/>
+        <metainf dir="${src.dir}/META-INF/ch8/ssl/"/>
+</jar>
+
+  <copy todir="equinoxssl">
+    <fileset dir="${ch8.dir}"/>
+  </copy>
+
+  <copy todir="equinoxjetty">
+    <fileset dir="${ch8.dir}"/>
+  </copy>
+
+  <copy todir="equinoxflex">
+    <fileset dir="${ch8.dir}"/>
+  </copy>
+
+</target>
+</project>

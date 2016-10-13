@@ -1,0 +1,11 @@
+* Create springosgi database
+mysqladmin -u root -p<rootpassword> create springosgi
+
+* Log into main DB to grant privileges
+mysql -u root -p<rootpassword> -D mysql
+
+* Grant all privileges to springosgi database
+GRANT ALL PRIVILEGES ON springosgi.* to hello@localhost IDENTIFIED BY 'world'
+
+* Execute script to populate database
+mysql -u hello -pworld -D springosgi < helloworld.sql

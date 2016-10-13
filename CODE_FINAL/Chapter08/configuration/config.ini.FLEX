@@ -1,0 +1,45 @@
+osgi.bundles=logging/com.springsource.ch.qos.logback.core-0.9.9.jar@start, \
+logging/com.springsource.ch.qos.logback.classic-0.9.9.jar, \
+logging/com.springsource.slf4j.api-1.5.0.jar@start, \
+logging/com.springsource.slf4j.org.apache.commons.logging-1.5.0.jar@start, \
+logging/com.springsource.slf4j.org.apache.log4j-1.5.0.jar@start, \
+db/com.springsource.javax.persistence-1.0.0.jar@start, \
+db/com.springsource.org.apache.commons.dbcp-1.2.2.osgi.jar@start, \
+db/com.springsource.javax.transaction-1.1.0.jar@start, \
+db/com.springsource.org.apache.commons.pool-1.3.0.jar@start, \
+db/com.springsource.com.mysql.jdbc-5.1.6.jar@start, \
+tomcat/com.springsource.javax.servlet-2.5.0.jar@start, \
+tomcat/com.springsource.javax.el-1.0.0.jar@start, \
+tomcat/com.springsource.javax.servlet.jsp-2.1.0.jar@start, \
+tomcat/com.springsource.org.apache.commons.el-1.0.0.jar@start, \
+tomcat/jasper.osgi-5.5.23-20080305.122359-4.jar, \
+tomcat/com.springsource.org.apache.taglibs.standard-1.1.2.jar@start, \
+tomcat/com.springsource.javax.servlet.jsp.jstl-1.1.2.jar@start, \
+tomcat/catalina.osgi-5.5.23-SNAPSHOT.jar@start, \
+tomcat/catalina.start.osgi-1.0-20080425.161832-4.jar@start, \
+springcore/com.springsource.edu.emory.mathcs.backport-3.0.0.jar@start, \
+springcore/com.springsource.org.apache.commons.collections-3.2.0.jar@start, \
+springcore/com.springsource.net.sf.cglib-2.1.3.jar@start, \
+springcore/com.springsource.org.aopalliance-1.0.0.jar@start, \
+springcore/org.springframework.core-2.5.4.A.jar@start, \
+springcore/org.springframework.beans-2.5.4.A.jar@start, \
+springcore/org.springframework.aop-2.5.4.A.jar@start, \
+springcore/org.springframework.context-2.5.4.A.jar@start, \
+springcore/org.springframework.context.support-2.5.4.A.jar@start, \
+springcore/org.springframework.web-2.5.4.A.jar@start, \
+springcore/org.springframework.web.servlet-2.5.4.A.jar@start, \
+db/org.springframework.transaction-2.5.4.A.jar@start, \
+db/org.springframework.jdbc-2.5.4.A.jar@start, \
+db/org.springframework.orm-2.5.4.A.jar@start, \
+springcore/spring-osgi-io-1.2.0-m1.jar@start, \
+springcore/spring-osgi-core-1.2.0-m1.jar@start, \
+springcore/spring-osgi-extender-1.2.0-m1.jar@start, \
+springcore/spring-osgi-web-1.2.0-m1.jar@start, \
+springcore/spring-osgi-web-extender-1.2.0-m1.jar@start, \
+helloworld-db.jar@start, \
+helloworld-model.jar@start, \
+helloworld-service.jar@start, \
+helloworld-servicedao-jdbc.jar@start, \
+helloworld-webflex.war@start
+eclipse.ignoreApp=true
+

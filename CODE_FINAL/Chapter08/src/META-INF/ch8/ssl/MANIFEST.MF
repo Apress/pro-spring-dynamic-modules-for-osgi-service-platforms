@@ -1,0 +1,6 @@
+Bundle-Version: 1.0
+Bundle-SymbolicName: com.apress.springosgi.ch8.ssl
+Fragment-Host: org.springframework.osgi.catalina.start.osgi
+Bundle-Name: HelloWorld Spring-OSGi SSL Certificate Configuration
+Bundle-Vendor: Pro Spring-OSGi
+Bundle-ManifestVersion: 2

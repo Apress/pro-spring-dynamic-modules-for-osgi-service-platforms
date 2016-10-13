@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<data>
+  <helloworld>
+    <language>Italian</language>
+    <message>Ciao Monde!</message>
+    <translationDate>2008-05-27</translationDate>
+    <translatorID>1</translatorID>
+  </helloworld>
+  <helloworld>
+    <language>Spanish</language>
+    <message>Hola Mundo!</message>
+    <translationDate>2008-05-27</translationDate>
+    <translatorID>2</translatorID>
+  </helloworld>
+  <helloworld>
+    <language>English</language>
+    <message>Hello World!</message>
+    <translationDate>2008-05-27</translationDate>
+    <translatorID>3</translatorID>
+  </helloworld>
+  <helloworld>
+    <language>French</language>
+    <message>Bonjour Monde!</message>
+    <translationDate>2008-05-27</translationDate>
+    <translatorID>4</translatorID>
+  </helloworld>
+  <helloworld>
+    <language>German</language>
+    <message>Hallo Welt!</message>
+    <translationDate>2008-05-27</translationDate>
+    <translatorID>5</translatorID>
+  </helloworld>
+</data>

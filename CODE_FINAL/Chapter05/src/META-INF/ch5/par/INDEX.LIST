@@ -1,0 +1,8 @@
+JarIndex-Version: 1.0
+
+helloworld-db.jar
+helloworld-model.jar
+helloworld-eclipselink.jar 
+helloworld-service.jar
+helloworld-servicedao-jpa.jar
+helloworld-web.jar

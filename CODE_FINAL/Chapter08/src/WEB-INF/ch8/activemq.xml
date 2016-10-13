@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<broker useJmx="true" persistent="false" xmlns="http://activemq.org/config/1.0">
+		<transportConnectors>
+			<transportConnector name="default" uri="tcp://localhost:61616"/>
+		</transportConnectors>
+	</broker>
+</beans>

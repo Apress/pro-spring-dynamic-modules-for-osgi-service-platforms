@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+  layout="vertical" horizontalAlign="center">
+    <mx:CurrencyFormatter id="cFormat" precision="2" currencySymbol="$" useThousandsSeparator="true"/>
+  <mx:Model id="messages" source="/data/messages.xml"/>
+  <mx:XML id="translators" source="/data/translators.xml"/>
+  <mx:Panel width="530" layout="absolute" 
+    title="Flex Application - Pro Spring Dynamic Modules for OSGi Service Platforms">
+    <mx:Label horizontalCenter="0" y="1" 
+      text="HelloWorld Messages" 
+      fontSize="16" fontWeight="bold"/>
+    <mx:DataGrid id="hwSpringFlex" width="510" 
+      dataProvider="{messages.helloworld}">
+      <mx:columns>
+        <mx:DataGridColumn headerText="Language" width="75">
+          <mx:itemRenderer>
+            <mx:Component>
+                <mx:Label text="{data.language}"/>
+            </mx:Component>
+          </mx:itemRenderer>
+        </mx:DataGridColumn>
+        <mx:DataGridColumn headerText="Message" width="75">
+          <mx:itemRenderer>
+            <mx:Component>
+                <mx:Label text="{data.message}"/>
+            </mx:Component>
+          </mx:itemRenderer>
+        </mx:DataGridColumn>
+        <mx:DataGridColumn headerText="Translation Date" width="75">
+          <mx:itemRenderer>
+            <mx:Component>
+                <mx:Label text="{data.translationDate}"/>
+            </mx:Component>
+          </mx:itemRenderer>
+        </mx:DataGridColumn>
+      </mx:columns>
+    </mx:DataGrid>
+    <mx:Label x="105" y="210" text="Translator:"/>
+    <mx:Label x="165" y="207"
+      fontWeight="bold" fontSize="13" id="lblTranslator" 
+      text="{translators.translator.(@id == 
+        hwSpringFlex.selectedItem.translatorID).name}"/>
+    <mx:Label x="305" y="210" text="Hourly Rate:"/>
+    <mx:Label x="385" y="210" id="lblHourlyRate" 
+      text="{cFormat.format(translators.translator.(@id == 
+        hwSpringFlex.selectedItem.translatorID).hourlyRate)}"/>
+  </mx:Panel>
+</mx:Application>

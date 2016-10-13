@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:osgi="http://www.springframework.org/schema/osgi"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                      http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+  <!-- Import the Data source service -->
+  <osgi:reference id="dataSource" interface="javax.sql.DataSource"/>
+
+
+  <!-- Create the helloWorldDAO bean -->
+  <bean id="helloWorldDAO" class="com.apress.springosgi.ch7.servicedaojdbc.HelloWorldDAO">
+     <property name="dataSource" ref="dataSource"/>
+  </bean>
+
+  <!-- Export helloWorldDAO as a service to OSGi via its interface -->
+  <osgi:service ref="helloWorldDAO" interface="com.apress.springosgi.ch7.service.HelloWorldService"/>
+</beans>

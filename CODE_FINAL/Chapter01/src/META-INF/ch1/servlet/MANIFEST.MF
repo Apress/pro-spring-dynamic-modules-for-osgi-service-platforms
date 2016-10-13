@@ -1,0 +1,10 @@
+Bundle-Name: Servlet for Hello World
+Bundle-Description: Servlet for Hello World Pro Spring-OSGi
+Bundle-Version: 1.0.0
+Bundle-Activator: com.apress.springosgi.ch1.servlet.Activator
+Import-Package:  org.osgi.framework,
+ org.osgi.util.tracker,
+ javax.servlet,
+ javax.servlet.http,
+ org.osgi.service.http,
+ com.apress.springosgi.ch1.hello

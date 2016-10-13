@@ -1,0 +1,8 @@
+<Context>
+<Loader loaderClass="org.springframework.instrument.classloading.tomcat.TomcatInstrumentableClassLoader" useSystemClassLoaderAsParent="false"/>
+   <Resource name="jdbc/springosgi" auth="Container" type="javax.sql.DataSource"
+               maxActive="100" maxIdle="30" maxWait="10000"
+               username="hello" password="world" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://127.0.0.1:3306/springosgi"/>
+
+ </Context>

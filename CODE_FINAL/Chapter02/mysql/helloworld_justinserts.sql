@@ -1,0 +1,3 @@
+INSERT INTO `HelloWorld` VALUES (51,'Italian','Ciao Monde!','2008-05-27',2),(52,'Spanish','Hola Mundo!','2008-05-27',1),(53,'English','Hello World!','2008-05-27',5),(54,'French','Bonjour Monde!','2008-05-27',3),(55,'German','Hallo Welt!','2008-05-27',4);
+
+INSERT INTO `Person` VALUES (1,'Carlos',40,'Perez'),(2,'Dino',45,'Casiraghi'),(3,'Pierre',40,'LeClair'),(4,'Franz',45,'Becker'),(5,'John',45,'Smith');

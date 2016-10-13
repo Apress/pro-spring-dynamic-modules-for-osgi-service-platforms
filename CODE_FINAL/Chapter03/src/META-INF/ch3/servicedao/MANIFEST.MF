@@ -1,0 +1,12 @@
+Bundle-Version: 1.0
+Bundle-SymbolicName: com.apress.springosgi.ch3.servicedao
+Bundle-Name: HelloWorld Spring-OSGi Service DAO
+Bundle-Vendor: Pro Spring-OSGi
+Import-Package: com.apress.springosgi.ch3.model;version="1.0.0",
+ com.apress.springosgi.ch3.service;version="1.0.0",
+ org.springframework.util;version="2.5.4",
+ org.springframework.beans.factory.xml;version="2.5.4",
+ org.springframework.aop;version="2.5.4",
+ org.springframework.aop.framework;version="2.5.4",
+ org.springframework.osgi.service.exporter.support;version="1.2.0"
+Bundle-ManifestVersion: 2

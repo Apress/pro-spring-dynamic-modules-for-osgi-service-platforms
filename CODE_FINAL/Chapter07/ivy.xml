@@ -1,0 +1,59 @@
+<ivy-module version="2.0">
+    <info organisation="apache" module="hello-ivy"/>
+    <configurations>  
+         <conf name="build"/>  
+         <conf name="logging"/>  
+         <conf name="db"/>  
+         <conf name="springcore"/>
+         <conf name="tomcat" />  
+    </configurations>  
+    <dependencies>
+       <!-- Download compile bundle dependencies for application build -->
+       <dependency org="javax.persistence" name="persistence-api" rev="1.0" conf="build->*"/>  
+       <dependency org="org.springframework" name="org.springframework.web.servlet" rev="2.5.4.A" conf="build->*"/>
+       <dependency org="org.springframework" name="org.springframework.jdbc" rev="2.5.4.A" conf="build->*"/>
+
+       <!-- Download runtime bundle dependencies for application logging -->
+       <dependency org="org.slf4j" name="com.springsource.slf4j.org.apache.commons.logging" rev="1.5.0" conf="logging->runtime"/>
+       <dependency org="org.slf4j" name="com.springsource.slf4j.org.apache.log4j" rev="1.5.0" conf="logging->runtime"/>
+       <dependency org="ch.qos.logback" name="com.springsource.ch.qos.logback.classic" rev="0.9.9" conf="logging->runtime"/>
+
+       <!-- Download runtime bundle dependencies for application database -->
+       <dependency org="com.mysql.jdbc" name="com.springsource.com.mysql.jdbc" rev="5.1.6" conf="db->runtime"/>
+       <dependency org="org.springframework" name="org.springframework.orm" rev="2.5.4.A" conf="db->runtime"/>
+       <dependency org="org.apache.commons" name="com.springsource.org.apache.commons.dbcp" rev="1.2.2.osgi" conf="db->runtime"/>
+       <dependency org="javax.persistence" name="com.springsource.javax.persistence" rev="1.0.0" conf="db->runtime"/>
+       <dependency org="javax.transaction" name="com.springsource.javax.transaction" rev="1.1.0" conf="db->runtime"/>
+
+       <!-- Download runtime bundle dependencies for application springcore -->
+       <dependency org="org.springframework" name="org.springframework.core" rev="2.5.4.A" conf="springcore->runtime"/>
+       <dependency org="org.springframework" name="org.springframework.web.servlet" rev="2.5.4.A" conf="springcore->runtime"/> 
+       <dependency org="org.springframework" name="org.springframework.context.support" rev="2.5.4.A" conf="springcore->runtime"/> 
+       <dependency org="org.apache.commons" name="com.springsource.org.apache.commons.collections" rev="3.2.0" conf="springcore->runtime"/>
+       <dependency org="net.sourceforge.cglib" name="com.springsource.net.sf.cglib" rev="2.1.3" conf="springcore->runtime"/>
+       <dependency org="edu.emory.mathcs.backport" name="com.springsource.edu.emory.mathcs.backport" rev="3.0.0" conf="springcore->runtime"/>
+
+       <dependency org="javax.annotation" name="com.springsource.javax.annotation" rev="1.0.0" conf="springcore->runtime"/>
+       <dependency org="org.springframework.osgi" name="spring-osgi-io" rev="1.2.0-m1" conf="springcore->*"/>
+       <dependency org="org.springframework.osgi" name="spring-osgi-core" rev="1.2.0-m1" conf="springcore->*"/>
+       <dependency org="org.springframework.osgi" name="spring-osgi-extender" rev="1.2.0-m1" conf="springcore->*"/>
+       <dependency org="org.springframework.osgi" name="spring-osgi-web" rev="1.2.0-m1" conf="springcore->*"/>
+       <dependency org="org.springframework.osgi" name="spring-osgi-web-extender" rev="1.2.0-m1" conf="springcore->*"/>
+
+       <!-- Download runtime bundle dependencies for application tomcat -->
+       <dependency org="javax.servlet" name="com.springsource.javax.servlet.jsp.jstl" rev="1.1.2" conf="tomcat->*"/>
+       <dependency org="javax.el" name="com.springsource.javax.el" rev="1.0.0" conf="tomcat->*"/>
+       <dependency org="org.apache.commons" name="com.springsource.org.apache.commons.el" rev="1.0.0" conf="tomcat->*"/>
+       <dependency org="org.springframework" name="jasper-pholder" rev="5.5.23-20080305.122359-4" conf="tomcat->*">
+         <artifact name="jasper.osgi" type="jar" url="http://s3.amazonaws.com/maven.springframework.org/osgi/org/springframework/osgi/jasper.osgi/5.5.23-SNAPSHOT/jasper.osgi-5.5.23-20080305.122359-4.jar"/>
+       </dependency>
+       <dependency org="catalina.osgi" name="catalina-pholder" rev="5.5.23-SNAPSHOT" conf="tomcat->*">
+         <artifact name="catalina.osgi" type="jar" url="http://s3.amazonaws.com/maven.springframework.org/osgi/org/springframework/osgi/catalina.osgi/5.5.23-SNAPSHOT/catalina.osgi-5.5.23-20080425.154256-4.jar"/>
+       </dependency>
+
+       <dependency org="catalina.start.osgi" name="catalina.start-pholder" rev="1.0-20080425.161832-4" conf="tomcat->*">
+         <artifact name="catalina.start.osgi" type="jar" url="http://s3.amazonaws.com/maven.springframework.org/osgi/org/springframework/osgi/catalina.start.osgi/1.0-SNAPSHOT/catalina.start.osgi-1.0-20080425.161832-4.jar"/>
+       </dependency>
+
+    </dependencies>
+</ivy-module>

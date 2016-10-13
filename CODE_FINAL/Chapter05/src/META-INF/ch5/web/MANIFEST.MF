@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.apress.springosgi.ch5.web
+Bundle-Version: 1.0
+Bundle-Name: HelloWorld SpringSource dm Server Web Module
+Bundle-Vendor: Pro Spring-OSGi
+Import-Library: org.springframework.spring;version="[2.5,2.6)"
+Import-Bundle: com.springsource.org.apache.taglibs.standard;version="[1.1.2,1.1.2]"
+Import-Package: com.apress.springosgi.ch5.model;version="1.0.0",
+ com.apress.springosgi.ch5.service;version="1.0.0"
+Module-Type: Web
+Web-ContextPath: helloworld
+Web-DispatcherServletUrlPatterns: /spring/*

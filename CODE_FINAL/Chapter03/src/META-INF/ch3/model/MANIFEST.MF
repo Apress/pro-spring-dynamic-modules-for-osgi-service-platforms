@@ -1,0 +1,6 @@
+Bundle-Version: 1.0
+Bundle-SymbolicName: com.apress.springosgi.ch3.model
+Bundle-Name: HelloWorld Spring-OSGi Model
+Bundle-Vendor: Pro Spring-OSGi
+Export-Package: com.apress.springosgi.ch3.model;version="1.0.0"
+Bundle-ManifestVersion: 2

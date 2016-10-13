@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Import-Package: com.mysql.jdbc;version="5.1.6",
+ com.mysql.jdbc.configs;version="5.1.6",
+ com.mysql.jdbc.exceptions;version="5.1.6",
+ com.mysql.jdbc.exceptions.jdbc4;version="5.1.6",
+ com.mysql.jdbc.integration.c3p0;version="5.1.6",
+ com.mysql.jdbc.integration.jboss;version="5.1.6",
+ com.mysql.jdbc.interceptors;version="5.1.6",
+ com.mysql.jdbc.jdbc2.optional;version="5.1.6",
+ com.mysql.jdbc.log;version="5.1.6",
+ com.mysql.jdbc.profiler;version="5.1.6",
+ com.mysql.jdbc.util;version="5.1.6",
+ javax.sql,
+ org.apache.commons.dbcp;version="1.2.2.osgi",
+ org.apache.commons.dbcp.cpdsadapter;version="1.2.2.osgi",
+ org.apache.commons.dbcp.datasources;version="1.2.2.osgi",
+ org.apache.commons.jocl;version="1.2.2.osgi",
+ org.gjt.mm.mysql;version="5.1.6"
+Bundle-SymbolicName: com.apress.springosgi.ch9.db
+Bundle-Version: 1.0.0
+Bundle-Name: HelloWorld Data Access MySQL DB
+Bundle-Vendor: Pro Spring-OSGi
+

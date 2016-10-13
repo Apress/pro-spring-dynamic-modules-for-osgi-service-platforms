@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.apress.springosgi.ch5.eclipselink
+Bundle-Version: 1.0.0
+Bundle-Name: HelloWorld SpringSource dm Server EclipseLink
+Bundle-Vendor: Pro Spring-OSGi
+Import-Library: org.springframework.spring;version="[2.5,2.6)"
+Import-Bundle: com.springsource.org.eclipse.persistence;version="1.0.0";import-scope:=application

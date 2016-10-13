@@ -1,0 +1,32 @@
+<ivysettings>
+
+  <settings defaultResolver="chain-springosgi"/>
+
+  <caches defaultCacheDir="${basedir}/ivylib">
+  </caches>
+
+  <resolvers>
+    <chain name="chain-springosgi">
+	<filesystem name="my-repository">
+  	  <ivy pattern="${basedir}/ivylib/[organisation]/[module]/ivys/ivy-[revision].xml"/>
+  	  <artifact pattern="${basedir}/ivylib/[organisation]/[module]/[type]s/[artifact]-[revision].[ext]"/>
+  	</filesystem>
+       <url name="spring-release-repo">
+                <ivy pattern="http://repository.springsource.com/ivy/bundles/release/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+                <artifact pattern="http://repository.springsource.com/ivy/bundles/release/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+       </url>
+       <url name="spring-external-repo">
+                <ivy pattern="http://repository.springsource.com/ivy/bundles/external/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+                <artifact pattern="http://repository.springsource.com/ivy/bundles/external/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+       </url>
+       <url name="spring-milestone-repo" m2compatible="true">
+                <artifact pattern="http://s3.amazonaws.com/maven.springframework.org/milestone/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]"/>
+       </url>
+       <ibiblio name="ibiblio"/>
+       <url name="default-repo" m2compatible="true">
+                <artifact pattern="http://repo1.maven.org/maven2/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]"/>
+       </url>
+
+    </chain>
+  </resolvers>
+</ivysettings>

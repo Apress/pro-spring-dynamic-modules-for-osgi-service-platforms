@@ -1,0 +1,57 @@
+Changes from 1.0.3 to 1.2.0
+---------------------------
+
+* [2008-08-03] Change to the R4.1 version of the spec. (FELIX-514)
+* [2008-05-08] Fixed a NPE. (FELIX-525)
+
+Changes from 1.0.3 to 1.0.4
+---------------------------
+
+* [2008-04-22] Update to framework version 1.0.4.
+
+Changes from 1.0.1 to 1.0.3
+---------------------------
+
+* [2008-01-27] Added launching and embedding docs to main project.
+* [2008-01-22] Update to maven-bundle-plugin version 1.2.0.
+* [2008-01-07] Modifed default launcher in Main to separate out 
+  auto-property processing so that it is easier to reuse the code in 
+  custom launchers. (FELIX-448)
+* [2007-12-14] Removed auto-property processing out of the framework and 
+  into the default launcher. (FELIX-393)
+* [2007-10-16] Use variable substitution via BND to define the properties 
+  in default.properties from the properties in config.properties.
+  (FELIX-380)
+* [2007-10-03] Added support to the Main launcher to use a default 
+  embedded resource for setting the framework configuration properties 
+  if the actual config.properties file cannot be loaded. (FELIX-380)
+* [2007-09-20] Remove some packages for jre1.3 profile  and add/remove a 
+  few for 1.4, 1.5, and 1.6 (javax.crypto.*). (FELIX-371)
+
+
+Changes from 1.0.0 to 1.0.1
+---------------------------
+
+* [2007-09-16] Update to framework version 1.0.1.
+
+
+Changes from 0.8.0-incubator to 1.0.0
+-------------------------------------
+
+* [2007-01-31] Changed how the system packages property is calculated to
+  make it more robust; previously it was leaving a dangling comma if the
+  execution platform was not known.
+* [2007-02-05] Added system package support for Java 6. (FELIX-201)
+* [2007-02-13] Removed support for trusted certificate authorities; this
+  will be added later as an extension.
+* [2007-03-16] Felix configuration properties can now be set as system
+  properties when using the standard launcher. (FELIX-250)
+* [2007-03-28] No longer including config.properties in the JAR file.
+* [2007-04-13] The javax.net and javax.net.ssl packages were missing
+  from the system packages properties.
+* [2007-04-13] Fixed a bug where the launcher was not correctly calculating
+  the installation directory correctly.
+* [2007-05-07] Was accidentally including OBR service interface package
+  in main JAR.
+* [2007-05-22] Now includes the Service Tracker package in main JAR.
+* [2007-07-04] Modified to use the new Felix embedding API.

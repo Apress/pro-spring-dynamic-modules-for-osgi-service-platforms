@@ -1,0 +1,4 @@
+Bundle-Name: Hello World
+Bundle-Description: H.W Pro-Spring OSGi
+Bundle-Version: 1.0.0
+Export-Package: com.apress.springosgi.ch1.hello

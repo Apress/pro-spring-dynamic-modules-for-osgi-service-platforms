@@ -1,0 +1,60 @@
+body,
+html {
+        margin:0;
+        padding:0;
+        background:#a7a09a;
+        color:#000;
+}
+
+body {
+        min-width:750px;
+}
+
+#wrap {
+        background:#ffffff;
+        margin:0 auto;
+        width:750px;
+}
+
+#header {
+        background:#cfcfcf;
+}
+
+#header h1 {
+        padding:5px;
+        margin:0;
+        text-align:center;
+}
+#main {
+        background:#dfdfdf;
+        float:left;
+        width:500px;
+}
+
+#main h2, #main h3, #main p {
+        padding:0 10px;
+}
+
+#sidebar {
+        background:#ffffff;
+        float:right;
+        width:240px;
+}
+
+#sidebar ul {
+        margin-bottom:0;
+}
+
+#sidebar h3, #sidebar p {
+        padding:0 10px 0 0;
+}
+#footer {
+        background:#bfbfbf;
+        clear:both;
+        text-align:center;
+}
+
+#footer p {
+        padding:5px;
+        margin:0;
+}
